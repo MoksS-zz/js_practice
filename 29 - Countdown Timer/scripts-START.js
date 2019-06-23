@@ -38,7 +38,7 @@ function displayEndTime(timestamp){
     const end = new Date(timestamp);
     const hour = end.getHours();
     const minute = end.getMinutes();
-    endTime.textContent = `все скажут ПУТин ХУЙЛО в ${hour} : ${minute < 10 ? '0': ''}${minute}`;
+    endTime.textContent = `DDDD Вставай ${hour} : ${minute < 10 ? '0': ''}${minute}`;
 };
 function startTimer(){
     const seconds= parseInt(this.dataset.time);

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="output" style="min-height: 200px; white-space: pre; border: 1px solid black;"
+    ondragenter="document.getElementById('output').textContent = ''; event.stopPropagation(); event.preventDefault();"
+    ondragover="event.stopPropagation(); event.preventDefault();" ondrop="event.stopPropagation(); event.preventDefault();
+dodrop(event);">
+    Перенесите файлы в эту область
+  </div>
+  <script>
+    function dodrop(event) {
+      const dt = event.dataTransfer;
+      const files = dt.files;
+
+      const count = files.length;
+      output("File Count: " + count + "\n");
+
+      for (let i = 0; i < files.length; i++) {
+        output(" File " + i + ":\n(" + (typeof files[i]) + ") : <" + files[i] + " > " +
+          files[i].name + " " + files[i].size + "\n");
+      }
+    }
+
+    function output(text) {
+      document.getElementById("output").textContent += text;
+    }
+  </script>
+</body>
+
+</html>
